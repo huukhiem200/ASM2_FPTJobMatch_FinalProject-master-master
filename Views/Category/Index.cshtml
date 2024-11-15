@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CategoryModel>
+
+<h2>Danh Sách Danh Mục</h2>
+<p>
+    <a asp-controller="Category" asp-action="PendingCategories" class="btn btn-primary">View Pending Approval List</a>
+</p>
+<p>
+    <a asp-controller="Category" asp-action="Create" class="btn btn-primary">Create a new category</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Name</td>
+                <td>@category.Description</td>
+                <td>@category.Status</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@category.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

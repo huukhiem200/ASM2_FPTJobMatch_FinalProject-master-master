@@ -1,0 +1,16 @@
+﻿@model FPT_JOBPORTAL.Application
+
+@{
+    ViewData["Title"] = "View Resume";
+}
+
+<h1>Resume for @Model.FullName</h1>
+
+<div>
+    <!-- Sử dụng iframe để hiển thị PDF -->
+    <iframe src="@Url.Action("GetResume", new { fileName = Model.Resume })" width="100%" height="800px"></iframe>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to Applications</a>
+</div>

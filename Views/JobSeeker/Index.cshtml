@@ -1,0 +1,32 @@
+﻿@model List<FPT_JOBPORTAL.Models.ApplicationUser>
+
+<h1>Job Seeker List</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Street Address</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jobSeeker in Model)
+        {
+            <tr>
+                <td>@jobSeeker.Name</td>
+                <td>@jobSeeker.Email</td>
+                <td>@jobSeeker.PhoneNumber</td>
+                <td>@jobSeeker.StreetAddress</td>
+                <td>@jobSeeker.City</td>
+                <td>
+                    <a asp-controller="JobSeeker" asp-action="Edit" asp-route-id="@jobSeeker.Id" class="btn btn-primary">Edit</a>
+                    <a asp-controller="JobSeeker" asp-action="Delete" asp-route-id="@jobSeeker.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
